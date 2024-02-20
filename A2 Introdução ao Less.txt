@@ -1,0 +1,89 @@
+1 Pré processador css LESS , junto ao SASS é um dos requisitos solicitados nas vagas.
+
+2 Vamosn o vs code e fazer a instalação do Less de Forma global
+
+3 npm install -g less
+
+4 na pasta do projeto vamos usra npm init e confirmar o inicio do projeto.
+
+5 depois instalamos a dependencia
+
+6 npm install --save-dev less
+
+
+7 vai criar a pasta modules que devemos colocar no git ignore
+
+8 depois usamos o git init
+
+9 vamos aprendera usar o less orientado a um projeto com biografia
+link de contato e etc.
+
+10 Começamos criando a index, criando a pasta src > a pasta styles e dentro da pasta styles
+criamos o arquivo main.less e o arquivo já é modificado no vs code.
+
+11 Depois que criamos tudo isso vamos no arquivo package.json e criamos o script do less que vai ser responsável
+por pegar e compilar o less em um arquivo css em uma pasta de saida.
+
+"scripts": {
+    "less": "lessc ./src/styles/main.less ./build/styles/main.css",
+
+lessC significa compilar 
+
+12 npm run less
+
+para validar o que criamos como saida e entrada.
+
+
+13 podemos comentar o less com // e /*Comentario */
+
+14 Ele possui elementos parecidos com o sass, por exemplo eu quero escrever um seletor h2 que esta dentro de body
+posso fazer direto.
+
+body { background-color: red;
+
+ h2 {  
+ 	color: #fff;
+
+ 	}
+
+}
+
+
+15 O less por padrão não possí a função watch quando usamos ele por linha de comando
+para fazermos isso temos que instalar 1 plugin, com o plugin teremos o watch dentro do less
+a cada modificação teremos a compilação gerando o arquivo css e assim nao precisaremos ficar
+exdecutando npm run less.
+
+
+i abreviacao = install
+g abreviacao = global
+
+16 npm i -g less-watch-compiler
+
+npm i --save-dev less-watch-compiler
+
+
+17 No arquivo package . json ao inves de usarmos lessC de compiler usamos
+
+less-watch-compiler 
+
+
+"scripts": {
+    "less": "less-watch-compiler ./src/styles/main.less ./build/styles/main.css",
+
+
+18 executamos npm run less
+
+
+
+19 vai dar erro porque agora com esse plugin precisamos só colocar o caminho terminando na pasta e nao o nome do arquivo
+
+"scripts": {
+    "less": "less-watch-compiler ./src/styles ./build/styles",
+
+
+20 podemos usar a configuração e o professor optou por ela colocando o arquivo principal no final da linha e executou novamente npm run less etc
+
+
+"scripts": {
+    "less": "less-watch-compiler ./src/styles ./build/styles main.less",
